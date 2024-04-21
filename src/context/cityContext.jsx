@@ -1,5 +1,6 @@
-import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
+import { createContext, useContext, useEffect, useState } from "react";
+
 
 const StoreContext = createContext();
 
@@ -18,12 +19,12 @@ export const StoreContextProvider = ({ children }) => {
           {
             headers: {
               "X-Api-Key": "LD9YvOMTJWDzRLuAX3pBlA==72oEstjEeEOx9SJU",
-              // Add more headers as needed
+             
             },
             contentType: "application/json",
           }
         );
-        console.log("dataLatLon", dataLatLon);
+      
         let suggestions =
           dataLatLon.data[0].name + ", " + dataLatLon.data[0].country;
         setCity(suggestions);
