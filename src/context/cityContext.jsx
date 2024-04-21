@@ -32,7 +32,7 @@ export const StoreContextProvider = ({ children }) => {
         let lon = await dataLatLon?.data[0]?.longitude;
 
         let cityWeatherData = await axios.get(
-          `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=60&appid=${userId}&units=metric`
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=60&appid=${userId}&units=metric`
         );
         setForecast(cityWeatherData);
         let suggestions =
