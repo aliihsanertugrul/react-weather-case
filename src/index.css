@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-image:url("../public/background.svg");
+  
+}
+
+//heading
+.heading-hg{  
+  font-size:96px;
+  font-weight:800;
+}
+.heading-xl{
+  font-size:48px;
+  font-weight:800;
+}
+.heading-lg{
+  font-size:32px;
+  font-weight:700;
+}
+.heading-md{
+  font-size:20px;
+  font-weight:700;
+}
+.heading-sm{
+  font-size:16px;
+  font-weight:700;
+}
+.heading-xs{
+  font-size:14px;
+  font-weight:700;
+}
+
+.city-detail{
+  background-image:url("../public/bg-city.svg");
+  background-repeat:no-repeat;
+  background-size:cover;
+}
+
+.disabled-btn{
+  pointer-events:none
+}
