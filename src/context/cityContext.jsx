@@ -45,7 +45,7 @@ export const StoreContextProvider = ({ children }) => {
     };
 
     fetchData();
-  }, [debouncedCity]);
+  }, [debouncedCity,forecast]);
 
   const values = {
     city,
