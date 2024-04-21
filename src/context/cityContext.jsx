@@ -10,7 +10,8 @@ export const StoreContextProvider = ({ children }) => {
   const [forecast, setForecast] = useState();
   const [showForecast, setShowForecast] = useState(false);
   const [cityError, setCityError] = useState();
-
+  let apiKey=process.env.REACT_APP_NINJA_API_KEY;
+ 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -18,7 +19,7 @@ export const StoreContextProvider = ({ children }) => {
           `https://api.api-ninjas.com/v1/city?name=${city}`,
           {
             headers: {
-              "X-Api-Key": "LD9YvOMTJWDzRLuAX3pBlA==72oEstjEeEOx9SJU",
+              "X-Api-Key": `${apiKey}`,
              
             },
             contentType: "application/json",
@@ -35,7 +36,7 @@ export const StoreContextProvider = ({ children }) => {
           `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=60&appid=${userId}&units=metric`
         );
         setForecast(cityWeatherData);
-        console.log(cityWeatherData);
+       
       } catch (error) {
         console.error("Error fetching data:", error);
         setCityError("Please enter valid city name..");
