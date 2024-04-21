@@ -1,6 +1,6 @@
 import axios from "axios";
 import { createContext, useContext, useEffect, useState } from "react";
-
+import { useDebounce } from 'use-debounce';
 
 const StoreContext = createContext();
 
@@ -10,13 +10,14 @@ export const StoreContextProvider = ({ children }) => {
   const [forecast, setForecast] = useState();
   const [showForecast, setShowForecast] = useState(false);
   const [cityError, setCityError] = useState();
+  const [debouncedCity]=useDebounce(city,300)
   let apiKey=process.env.REACT_APP_NINJA_API_KEY;
  
   useEffect(() => {
     const fetchData = async () => {
       try {
         let dataLatLon = await axios.get(
-          `https://api.api-ninjas.com/v1/city?name=${city}`,
+          `https://api.api-ninjas.com/v1/city?name=${debouncedCity}`,
           {
             headers: {
               "X-Api-Key": `${apiKey}`,
@@ -44,7 +45,7 @@ export const StoreContextProvider = ({ children }) => {
     };
 
     fetchData();
-  }, [city]);
+  }, [debouncedCity]);
 
   const values = {
     city,

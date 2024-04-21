@@ -1,14 +1,12 @@
 import React from "react";
 import { useCity } from "../context/cityContext";
-import { TbHandClick } from "react-icons/tb";
 import { HiCursorClick } from "react-icons/hi";
 import ErrorMessage from "../helpers/muiAlert";
-import Alert from "@mui/material/Alert";
-import Stack from "@mui/material/Stack";
+
 
 const CitySelect = () => {
   const { setCity, city, setShowForecast, forecast, cityError } = useCity();
-  console.log("forecast", forecast);
+ 
 
   const handleCity = (e) => {
     setCity(e.target.value);
