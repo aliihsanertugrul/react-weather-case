@@ -38,6 +38,7 @@ export const StoreContextProvider = ({ children }) => {
         let suggestions =
           dataLatLon?.data[0]?.name + ", " + dataLatLon?.data[0]?.country;
         setCity(suggestions);
+        
        
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -46,7 +47,7 @@ export const StoreContextProvider = ({ children }) => {
     };
 
     fetchData();
-  }, [debouncedCity,forecast]);
+  }, [debouncedCity]);
 
   const values = {
     city,
