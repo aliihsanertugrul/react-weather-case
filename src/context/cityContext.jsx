@@ -27,16 +27,17 @@ export const StoreContextProvider = ({ children }) => {
           }
         );
       
-        let suggestions =
-          dataLatLon.data[0].name + ", " + dataLatLon.data[0].country;
-        setCity(suggestions);
-        let lat = await dataLatLon.data[0].latitude;
-        let lon = await dataLatLon.data[0].longitude;
+        
+        let lat = await dataLatLon?.data[0]?.latitude;
+        let lon = await dataLatLon?.data[0]?.longitude;
 
         let cityWeatherData = await axios.get(
           `http://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&cnt=60&appid=${userId}&units=metric`
         );
         setForecast(cityWeatherData);
+        let suggestions =
+          dataLatLon?.data[0]?.name + ", " + dataLatLon?.data[0]?.country;
+        setCity(suggestions);
        
       } catch (error) {
         console.error("Error fetching data:", error);
